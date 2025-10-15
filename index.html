@@ -383,43 +383,47 @@
             </div>
         </section>
         <footer>
-            <a href="https://www.linkedin.com/in/shivam-sharma-089947299/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">&copy; Shivam Sharma</a>
-         </footer>
-       
-    </div>
-    <script>
-        function showSection(id) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(id).classList.add('active');
-        }
+         <a href="https://www.linkedin.com/in/shivam-sharma-089947299/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;"> &copy; Shivam Sharma </a>
+        </footer>
 
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.gallery img');
-        const captions = document.querySelectorAll('.gallery .caption');
+</div> <!-- closes .container -->
 
-        // THIS FUNCTION IS NOW CORRECTED
-        function showSlide(index) {
-            images.forEach((img, i) => {
-                img.classList.remove('active');
-                captions[i].classList.remove('active');
-            });
-            images[index].classList.add('active');
-            captions[index].classList.add('active');
-        }
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showSlide(currentIndex);
-        }
+  function showSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
 
-        // Initialize the slideshow on page load
-        if (images.length > 0) {
-            showSlide(currentIndex);
-            setInterval(nextSlide, 2000); // Change image every 2 seconds
-        }
-    </script>
+  let currentIndex = 0;
+  const images = document.querySelectorAll('.gallery img');
+  const captions = document.querySelectorAll('.gallery .caption');
+
+  function showSlide(index) {
+    images.forEach((img, i) => {
+      img.classList.remove('active');
+      captions[i].classList.remove('active');
+    });
+    images[index].classList.add('active');
+    captions[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+  }
+
+  // Initialize slideshow
+  if (images.length > 0) {
+    showSlide(currentIndex);
+    setInterval(nextSlide, 2000);
+  }
+
+}); // 👈 this closing bracket ends DOMContentLoaded listener
+</script>
 </body>
 </html>
